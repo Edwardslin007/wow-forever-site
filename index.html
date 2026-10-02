@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-fac="horde">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#04050a">
+<title>魔兽世界：无限 · World of Warcraft: Forever | 版本更新总览</title>
+<meta name="description" content="《魔兽世界：无限》版本更新总览 —— 2026年11月5日全球同步上线。四大全新区域、九座地下城、三座团队副本、天裔新种族。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════ 阵营徽记 SVG 定义 ═══════════ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+
+  <!-- 联盟：狮盾 + 圣光锤 + 齿轮 + 狮鹫/角鹰兽 -->
+  <symbol id="emb-alliance" viewBox="0 0 100 100">
+    <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- 狮鹫（左） -->
+      <path d="M24 30 L16 22 L20 34 L13 31"/>
+      <path d="M17 22 L24 24 L21 18" stroke-width="1.6"/>
+      <!-- 角鹰兽（右） -->
+      <path d="M76 30 L84 22 L80 34 L87 31"/>
+      <path d="M83 22 L76 24 L79 18" stroke-width="1.6"/>
+      <!-- 顶部圣光锤 -->
+      <path d="M44 18 L50 10 L56 18 M50 10 L50 26" stroke-width="1.8"/>
+      <path d="M42 26 L58 26" stroke-width="1.8"/>
+      <!-- 底部齿轮 -->
+      <circle cx="50" cy="82" r="6" stroke-width="1.6"/>
+      <circle cx="50" cy="82" r="2.2" stroke-width="1.2"/>
+      <path d="M50 73v-3M50 91v3M41 82h-3M59 82h3M43.5 75.5l-2-2M56.5 75.5l2-2M43.5 88.5l-2 2M56.5 88.5l2 2" stroke-width="1.5"/>
+      <!-- 交叉弓箭 -->
+      <path d="M36 74 L64 90 M64 74 L36 90" stroke-width="1.5"/>
+      <!-- 中央狮盾 -->
+      <path d="M50 32 L70 38 L70 54 Q70 68 50 78 Q30 68 30 54 L30 38 Z" fill="currentColor" fill-opacity=".14" stroke-width="2.4"/>
+      <!-- 盾内雄狮头 -->
+      <path d="M50 42 Q43 42 41 49 Q40 55 44 58 L44 63 L50 60 L56 63 L56 58 Q60 55 59 49 Q57 42 50 42 Z" fill="currentColor" fill-opacity=".9" stroke="none"/>
+      <path d="M44 47 L41 44 M56 47 L59 44" stroke-width="1.4"/>
+    </g>
+  </symbol>
+
+  <!-- 部落：獠牙盾 + 巨魔巫毒 + 牛角 + 骸骨铁链 -->
+  <symbol id="emb-horde" viewBox="0 0 100 100">
+    <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- 顶部巨魔巫毒图腾 -->
+      <path d="M50 6 L58 14 L50 22 L42 14 Z" fill="currentColor" fill-opacity=".5" stroke-width="1.8"/>
+      <circle cx="46.5" cy="14" r="1.4" fill="currentColor" stroke="none"/>
+      <circle cx="53.5" cy="14" r="1.4" fill="currentColor" stroke="none"/>
+      <path d="M46 18 L54 18" stroke-width="1.5"/>
+      <path d="M50 22 L50 28" stroke-width="1.8"/>
+      <!-- 牛头人断角（左右） -->
+      <path d="M30 40 Q18 32 16 20 Q26 26 33 34" fill="currentColor" fill-opacity=".25" stroke-width="2"/>
+      <path d="M70 40 Q82 32 84 20 Q74 26 67 34" fill="currentColor" fill-opacity=".25" stroke-width="2"/>
+      <path d="M70 42 Q80 38 82 30" stroke-width="1.5" stroke-dasharray="2 2"/>
+      <!-- 中央獠牙盾 -->
+      <path d="M50 28 L72 36 L72 54 Q72 70 50 82 Q28 70 28 54 L28 36 Z" fill="currentColor" fill-opacity=".14" stroke-width="2.4"/>
+      <!-- 獠牙 -->
+      <path d="M36 46 L36 54 L39 49 L42 55 L42 46" fill="currentColor" fill-opacity=".85" stroke="none"/>
+      <path d="M58 46 L58 55 L61 49 L64 54 L64 46" fill="currentColor" fill-opacity=".85" stroke="none"/>
+      <!-- 中心眼 -->
+      <path d="M42 62 L50 58 L58 62 L50 70 Z" fill="currentColor" fill-opacity=".9" stroke="none"/>
+      <!-- 背后骸骨与铁链 -->
+      <path d="M24 50 L20 50 M76 50 L80 50" stroke-width="2.4"/>
+      <circle cx="18" cy="50" r="2.4" stroke-width="1.4"/>
+      <circle cx="82" cy="50" r="2.4" stroke-width="1.4"/>
+      <path d="M22 44 L26 44 M22 56 L26 56" stroke-width="1.3"/>
+      <path d="M78 44 L74 44 M78 56 L74 56" stroke-width="1.3"/>
+      <!-- 底部羽毛 -->
+      <path d="M44 86 L40 96 M50 88 L50 97 M56 86 L60 96" stroke-width="1.5"/>
+    </g>
+  </symbol>
+
+  <!-- 通用圆环符阵装饰 -->
+  <symbol id="ring" viewBox="0 0 200 200">
+    <g fill="none" stroke="currentColor">
+      <circle cx="100" cy="100" r="94" stroke-width=".7" opacity=".4"/>
+      <circle cx="100" cy="100" r="80" stroke-width="1" opacity=".6"/>
+      <circle cx="100" cy="100" r="56" stroke-width=".6" stroke-dasharray="2 6" opacity=".5"/>
+      <path d="M100 20 L110 44 L90 44 Z" opacity=".8"/>
+      <path d="M100 180 L110 156 L90 156 Z" opacity=".8"/>
+      <path d="M20 100 L44 90 L44 110 Z" opacity=".8"/>
+      <path d="M180 100 L156 90 L156 110 Z" opacity=".8"/>
+      <path d="M44 44 L60 52 L52 60 Z" opacity=".5"/>
+      <path d="M156 44 L140 52 L148 60 Z" opacity=".5"/>
+      <path d="M44 156 L52 140 L60 148 Z" opacity=".5"/>
+      <path d="M156 156 L148 140 L140 148 Z" opacity=".5"/>
+      <circle cx="100" cy="100" r="4" fill="currentColor" stroke="none" opacity=".9"/>
+    </g>
+  </symbol>
+</defs></svg>
+
+<!-- ═══════════ 顶栏 ═══════════ -->
+<header id="topbar">
+  <a class="brand" href="#" data-go="0">
+    <svg class="cr" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <g class="sp" stroke="currentColor" style="color:var(--accent)">
+        <circle cx="50" cy="50" r="46" stroke-width="1.3" opacity=".55"/>
+        <circle cx="50" cy="50" r="37" stroke-width=".7" opacity=".35" stroke-dasharray="3 5"/>
+        <path d="M50 14 L60 42 L88 50 L60 58 L50 86 L40 58 L12 50 L40 42 Z" fill="currentColor" fill-opacity=".16" stroke-width="1.7"/>
+        <path d="M28 28 L34 40 L46 34 M72 28 L66 40 L54 34 M28 72 L34 60 L46 66 M72 72 L66 60 L54 66" stroke-width="1.2" opacity=".75"/>
+      </g>
+    </svg>
+    <span class="brand-tx"><b>魔兽世界：无限</b><span>World of Warcraft</span></span>
+  </a>
+
+  <div class="emblem" aria-hidden="true">
+    <svg class="em-a" viewBox="0 0 100 100" style="color:#7fb2e5"><use href="#emb-alliance"/></svg>
+    <svg class="em-h" viewBox="0 0 100 100" style="color:#d1553a"><use href="#emb-horde"/></svg>
+  </div>
+
+  <nav class="fac-tabs" role="group" aria-label="阵营切换">
+    <button data-f="alliance">
+      <svg viewBox="0 0 100 100" style="width:14px;height:14px"><use href="#emb-alliance"/></svg>联盟
+    </button>
+    <button data-f="horde" class="on">
+      <svg viewBox="0 0 100 100" style="width:14px;height:14px"><use href="#emb-horde"/></svg>部落
+    </button>
+  </nav>
+
+  <div class="dots" id="dots"></div>
+
+  <div class="pager">
+    <button id="pPrev" aria-label="上一屏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
+    <button id="pNext" aria-label="下一屏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+  </div>
+
+  <button class="burger" id="burger" aria-label="菜单"><span></span><span></span><span></span></button>
+</header>
+
+<div class="scrim" id="scrim"></div>
+<aside class="mob-nav" id="mobNav" aria-label="导航"></aside>
+
+<!-- ═══════════ 侧边页码 ═══════════ -->
+<nav id="rail" aria-label="分页导航"></nav>
+
+<!-- ═══════════ 粒子层 ═══════════ -->
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<!-- ═══════════ 主容器 ═══════════ -->
+<main id="app">
+
+  <!-- ─── 01 HERO ─── -->
+  <section class="deck on" data-nav="序章" data-short="Hero">
+    <div class="deck-bg">
+      <div id="montage">
+        <div class="grain"></div>
+      </div>
+    </div>
+    <div class="deck-scroll">
+      <div class="hero-in">
+        <div id="montageTag" data-rv>
+          <span class="d"></span>
+          <span>官方宣传动画 · <span class="nm" id="mtName">New Horizons</span></span>
+        </div>
+        <h1 class="hero-t" data-rv>
+          <span>魔兽世界</span>
+          <span class="l2">无限</span>
+        </h1>
+        <div class="hero-en" data-rv>World of Warcraft&nbsp;&nbsp;·&nbsp;&nbsp;Forever</div>
+        <p class="hero-lede" data-rv>
+          二十五年后，我们回到<span id="facLine">故事开始的地方</span>。
+          全新四季同启的原初艾泽拉斯，<b>四大区域</b>、<b>1000+ 全新任务</b>、<b>九座地下城</b>与一个全新可选种族——
+          这不是又一个赛季，而是一场可以走很多年的旅程。
+        </p>
+        <div class="btn-row" data-rv>
+          <button class="btn pri" data-go="1">探索版本详情
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </button>
+          <button class="btn" data-go="7">上线路线图
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </button>
+        </div>
+        <div data-rv>
+          <div style="font-size:10.5px;letter-spacing:.26em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:14px;font-family:var(--font-display)">
+            全球同步上线倒计时 · 2026.11.04 15:00 PST
+          </div>
+          <div class="count">
+            <div class="cc"><b id="cd-d">--</b><span>Days</span></div>
+            <div class="cc"><b id="cd-h">--</b><span>Hours</span></div>
+            <div class="cc"><b id="cd-m">--</b><span>Minutes</span></div>
+            <div class="cc"><b id="cd-s">--</b><span>Seconds</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><span class="b"></span></div>
+    <div id="vctl">
+      <button id="vPrev" aria-label="上一段"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button id="vToggle" aria-label="播放/暂停"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button>
+      <button id="vNext" aria-label="下一段"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
+  </section>
+
+  <!-- ─── 02 概览 ─── -->
+  <section class="deck" id="overview" data-nav="概览" data-short="概览">
+    <div class="deck-bg plain"></div>
+    <div class="deck-scroll">
+      <div class="deck-inner">
+        <div class="sec-head" data-rv>
+          <span class="eyebrow">Chapter I — Overview</span>
+          <h2 class="h-sec">版本核心<em>信息</em></h2>
+          <p class="lede">
+            《魔兽世界：无限》于 <b style="color:var(--accent-ink)">2026 年 11 月 4 日 15:00（太平洋标准时间）</b> 全球同步上线，
+            国服于 11 月 5 日 07:00 开启。Beta 已于 9 月 17 日启动，10 月 6 日开启国服 Beta。
+            它以 60 级封顶的原初艾泽拉斯为舞台，采用永久在线、可长期扩展的内容结构，而非限时赛季。
+          </p>
+        </div>
+        <div class="grid g4" style="margin-bottom:clamp(14px,1.8vw,22px)">
+          <div class="stat shine" data-rv><b data-c="4">0</b><span>全新区域</span><small>New Zones</small></div>
+          <div class="stat shine" data-rv style="transition-delay:.07s"><b data-c="1000" data-suf="+">0</b><span>全新任务</span><small>New Quests</small></div>
+          <div class="stat shine" data-rv style="transition-delay:.14s"><b data-c="9">0</b><span>全新地下城</span><small>Dungeons</small></div>
+          <div class="stat shine" data-rv style="transition-delay:.21s"><b data-c="3">0</b><span>团队副本</span><small>Raids</small></div>
+        </div>
+        <div class="grid g4">
+          <div class="stat shine" data-rv><b data-c="60">0</b><span>等级上限</span><small>Level Cap</small></div>
+          <div class="stat shine" data-rv style="transition-delay:.07s"><b data-c="1">0</b><span>新可选种族</span><small>Skyborne</small></div>
+          <div class="stat shine" data-rv style="transition-delay:.14s"><b data-c="15" data-suf="v15">0</b><span>全新战场</span><small>Darkspear Is.</small></div>
+          <div class="stat shine" data-rv style="transition-delay:.21s"><b data-c="4">0</b><span>可选规则模式</span><small>Rulesets</small></div>
+        </div>
+        <div class="rule" style="margin:clamp(30px,4.4vw,54px) 0 clamp(20px,2.8vw,32px)" data-rv><span class="g"></span></div>
+        <div class="sec-head" data-rv>
+          <span class="eyebrow">Design Philosophy</span>
+          <h2 class="h-sec">四项核心<em>理念</em></h2>
+        </div>
+        <div class="grid g4">
+          <div class="pillar shine" data-rv><span class="ix">I</span><h4>亲切易上手</h4><p>新手与回归玩家都能快速进入状态。全新 1–12 级起始区域与引导流程，配合传承系统，让你在第一条路上就握得住职业的招牌技能。</p></div>
+          <div class="pillar shine" data-rv style="transition-delay:.07s"><span class="ix">II</span><h4>让世界成为主角</h4><p>世界本身即是叙事主体。地图边界之外还有地图，海加尔山、辛德拉、河林、泽风岛——每一片土地都有自己的故事线与生态。</p></div>
+          <div class="pillar shine" data-rv style="transition-delay:.14s"><span class="ix">III</span><h4>旅程胜于终点</h4><p>升级过程与终局内容同等重要。1–60 级的每一段路都有专属任务密度与区域节奏，不做等级缩放，不做飞行坐骑。</p></div>
+          <div class="pillar shine" data-rv style="transition-delay:.21s"><span class="ix">IV</span><h4>守护社交体验</h4><p>露营系统让野外成为可停留的社交空间；四种规则模式（经典 / PvP / 角色扮演 / 硬核）让不同偏好的玩家在同一服共存。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 03 新区域 ─── -->
+  <section class="deck" data-nav="新区域" data-short="区域">
+    <div class="deck-bg plain"></div>
+    <div class="deck-scroll">
+      <div class="deck-inner">
+        <div class="sec-head" data-rv>
+          <span class="eyebrow">Chapter II — New Zones</span>
+          <h2 class="h-sec">全新<em>探索区域</em></h2>
+          <p class="lede">冒险横跨东部王国与卡利姆多。海加尔山与泽风岛为全新区域，辛德拉揭开地图边界之外的谜团，河林承接 35–45 级的主力升级历程。</p>
+        </div>
+        <div class="grid g2">
+          <article class="zone brk" data-tex="0" data-rv>
+            <div class="art"></div>
+            <div class="wm">01</div>
+            <div class="zb">
+              <span class="zlv">终局升级区域 · 满级区域</span>
+              <h3>海加尔山</h3><div class="en">Mount Hyjal</div>
+              <p>阿克蒙德败亡之后，这片土地满目疮痍，却仍在顽强复苏。玩家需要穿越暗语峡谷，帮助重生的海加尔山开创未来。这里同时是首个团队副本「海加尔峰」的所在地。</p>
+              <div class="tags"><span class="tag">暗语峡谷</span><span class="tag">阿克蒙德之后</span><span class="tag">20人团本所在地</span></div>
+              <div class="zbar"><i data-w="82"></i></div>
+            </div>
+          </article>
+          <article class="zone brk" data-tex="1" data-rv style="transition-delay:.08s">
+            <div class="art"></div>
+            <div class="wm">02</div>
+            <div class="zb">
+              <span class="zlv">剧情枢纽 · 中高等级</span>
+              <h3>辛德拉</h3><div class="en">Shen'dralas</div>
+              <p>长期隐藏在莫高雷与凄凉之地之间的谜团终于揭晓。这里牵涉辛德拉、埃雷萨拉斯、厄运之槌，以及当地的半人马部族——多条旧日支线在此交汇重写。</p>
+              <div class="tags"><span class="tag">埃雷萨拉斯</span><span class="tag">厄运之槌</span><span class="tag">半人马部族</span></div>
+              <div class="zbar"><i data-w="64"></i></div>
+            </div>
+          </article>
+          <article class="zone brk" data-tex="2" data-rv style="transition-delay:.16s">
+            <div class="art"></div>
+            <div class="wm">03</div>
+            <div class="zb">
+              <span class="zlv">35 – 45 级 · 150+ 任务</span>
+              <h3>河林</h3><div class="en">The Riverglades</div>
+              <p>河流、草原与贸易路线交织的荒野边疆。这里有挣扎求生的社区、陈年未解的恩怨，以及超过 150 个全新任务，覆盖 35 至 45 级升级历程中的绝大部分路程。</p>
+              <div class="tags"><span class="tag">150+ 任务</span><span class="tag">贸易路线</span><span class="tag">半人马与兽人冲突</span></div>
+              <div class="zbar"><i data-w="48"></i></div>
+            </div>
+          </article>
+          <article class="zone brk" data-tex="3" data-rv style="transition-delay:.24s">
+            <div class="art"></div>
+            <div class="wm">04</div>
+            <div class="zb">
+              <span class="zlv">1 – 12 级 · 全新起始区域</span>
+              <h3>泽风岛</h3><div class="en">Zephras Isle</div>
+              <p>一处融合经典《魔兽世界》美学与天空之墙建筑风格的空中岛屿。这里是全新可选种族「天裔」的家园，也是所有新角色旅程真正开始的地方。</p>
+              <div class="tags"><span class="tag">天裔家园</span><span class="tag">天空之墙风格</span><span class="tag">起始剧情</span></div>
+              <div class="zbar"><i data-w="20"></i></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 04 地下城 ─── -->
+  <section class="deck" data-nav="地下城" data-short="副本">
+    <div class="deck-bg plain"></div>
+    <div class="deck-scroll">
+      <div class="deck-inner">
+        <div class="sec-head" data-rv>
+          <span class="eyebrow">Chapter III — Dungeons</span>
+          <h2 class="h-sec">九座全新<em>地下城</em></h2>
+          <p class="lede">九处长期被玩家讨论的原初地点，变成了真正可以走进去的地下城。它们覆盖从 13 级到 60 级的完整等级带，与升级路径紧密咬合。</p>
+        </div>
+        <div class="dgl" data-rv>
+          <div class="dg"><div class="tp"><h4>萨满之厅</h4><span class="lv">Lv.13–18</span></div><span class="en">Hall of Thanes</span></div>
+          <div class="dg"><div class="tp"><h4>洛丹伦废墟</h4><span class="lv">Lv.15–20</span></div><span class="en">Ruins of Lordaeron</span></div>
+          <div class="dg"><div class="tp"><h4>挖掘现场</h4><span class="lv">Lv.24–29</span></div><span class="en">Excavation Site</span></div>
+          <div class="dg"><div class="tp"><h4>达拉然城</h4><span class="lv">Lv.28–33</span></div><span class="en">City of Dalaran</span></div>
+          <div class="dg"><div class="tp"><h4>沉没之城</h4><span class="lv">Lv.35–40</span></div><span class="en">The Drowned City</span></div>
+          <div class="dg"><div class="tp"><h4>库洛德要塞</h4><span class="lv">Lv.40–45</span></div><span class="en">Krol'Dok Stronghold</span></div>
+          <div class="dg"><div class="tp"><h4>阿尔卡萨监狱</h4><span class="lv">Lv.48–53</span></div><span class="en">Alcaz Island Prison</span></div>
+          <div class="dg"><div class="tp"><h4>黑颚要塞</h4><span class="lv">Lv.55–60</span></div><span class="en">Blackmaw Hold</span></div>
+          <div class="dg"><div class="tp"><h4>塑造者之台</h4><span class="lv">Lv.58–60</span></div><span class="en">Shaper's Terrace</span></div>
+        </div>
+        <p class="lede" style="margin-top:20px;font-size:12.5px;color:var(--ink-400)" data-rv>
+          注：达拉然城为 28–33 级内容，与「至暗之夜」中重制的达拉然同址；这是「无限」时间线独立于现代 WoW 的表现之一。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 05 团本 ─── -->
+  <section class="deck" data-nav="团队副本" data-short="团本">
+    <div class="deck-bg plain"></div>
+    <div class="deck-scroll">
+      <div class="deck-inner">
+        <div class="sec-head" data-rv>
+          <span class="eyebrow">Chapter IV — Raids</span>
+          <h2 class="h-sec">团队<em>副本</em></h2>
+          <p class="lede">三座团队副本构成「无限」的终局核心。首个团队副本阶段于 <b style="color:var(--accent-ink)">2026 年 12 月 10 日</b>解锁，其中 20 人规模的「海加尔峰」将提供新的职业套装与传说级奖励。</p>
+        </div>
+        <div class="grid g3">
+          <article class="raid brk shine" data-rv>
+            <span class="bd">首个解锁 · 12.10</span>
+            <h3>深穴</h3><div class="en">Barrow Deeps</div>
+            <p>满级 10 人挑战。作为「无限」开服后的第一座团队副本，它承担了检验新职业强度、新天赋树与新世界机制在团本环境中的表现这一职责。</p>
+            <div class="mt"><div><span>人数</span><b>10 人</b></div><div><span>定位</span><b>满级挑战</b></div><div><span>解锁</span><b>2026.12.10</b></div></div>
+          </article>
+          <article class="raid brk shine" data-rv style="transition-delay:.09s">
+            <span class="bd">20 人 · 传说奖励</span>
+            <h3>海加尔峰</h3><div class="en">Hyjal Summit</div>
+            <p>20 人规模团队副本，坐落于全新区域海加尔山。它将带来新的职业套装，并提供传说级奖励——这是「无限」开服周期的最终奖励目标。</p>
+            <div class="mt"><div><span>人数</span><b>20 人</b></div><div><span>奖励</span><b>职业套装 · 传说</b></div><div><span>解锁</span><b>2026.12.10</b></div></div>
+          </article>
+          <article class="raid brk shine" data-rv style="transition-delay:.18s">
+            <span class="bd">重制计划 · 2027</span>
+            <h3>黑龙巢穴</h3><div class="en">Onyxia's Lair</div>
+            <p>一座经过重制的经典团队副本。将随 2027 年夏季更新登场，以「无限」时代的语言重新讲述这条巨龙之路。</p>
+            <div class="mt"><div><span>类型</span><b>经典重制</b></div><div><span>节奏</span><b>2027 夏季</b></div><div><span>性质</span><b>永久内容</b></div></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 06 种族 ─── -->
+  <section class="deck" data-nav="新种族" data-short="天裔">
+    <div class="deck-bg plain"></div>
+    <div class="deck-scroll">
+      <div class="deck-inner">
+        <div class="sec-head" data-rv>
+          <span class="eyebrow">Chapter V — New Race</span>
+          <h2 class="h-sec">可选种族<em>「天裔」</em></h2>
+          <p class="lede">天裔（Skyborne）是本次「无限」带来的全新可选种族。作为高等精灵流亡者的分支，他们可自由选择加入联盟或部落——这是「无限」在阵营设计上最具象征意义的改动。</p>
+        </div>
+        <div class="race-wrap">
+          <div class="race-card brk" data-rv="l">
+            <div class="rc-art"></div>
+            <h3>天裔</h3>
+            <div class="en">The Skyborne</div>
+            <p>来自新近发现的泽风岛，他们在空中岛屿建立了自己的家园。天裔打破了「一个种族绑定一个阵营」的旧例：你可以自由选择效忠联盟还是部落，而两方的种族天赋存在细微差异。他们并非某个新可选种族包的内容——只要拥有《魔兽世界》游戏时间，你就可以在泽风岛开启这段旅程。</p>
+            <div class="cgrid">
+              <div><b>战士</b> Warrior<span class="fg a">通用</span></div>
+              <div><b>猎人</b> Hunter<span class="fg a">通用</span></div>
+              <div><b>潜行者</b> Rogue<span class="fg a">通用</span></div>
+              <div><b>德鲁伊</b> Druid<span class="fg a">通用</span></div>
+              <div><b>萨满祭司</b> Shaman<span class="fg h">仅部落</span></div>
+              <div><b>法师</b> Mage<span class="fg a">仅联盟</span></div>
+            </div>
+          </div>
+          <div class="race-col">
+            <div class="mini" data-rv="r">
+              <h5>矮人萨满祭司</h5>
+              <p>以元素之名号令山岩与雷霆。矮人特有的工程审美与萨满祭司的元素亲和在这一组合中产生了全新的表达空间。</p>
+            </div>
+            <div class="mini" data-rv="r" style="transition-delay:.1s">
+              <h5>被遗忘者圣骑士</h5>
+              <p>被遗忘者以自身的意志重新握住圣光之力——这是一次关于救赎与不死的经典命题，官方将其列为「无限」的职业特色之一。</p>
+            </div>
+            <div class="mini" data-rv="r" style="transition-delay:.18s">
+              <h5>重制的天赋树</h5>
+              <p>技能与天赋体系全面重做。官方承诺在弥补现有职业短板的同时，完整保留各职业自身的身份特色。</p>
+            </div>
+            <div class="mini" data-rv="r" style="transition-delay:.26s">
+              <h5>职业强度取向</h5>
+              <p>「无限」继续强调挑战、准备、沟通与协作四件事——高难内容需要的是团队准备度，而非单一职业的数值红利。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 07 系统 ─── -->
+  <section class="deck" id="systems" data-nav="系统成长" data-short="系统">
+    <div class="deck-bg plain"></div>
+    <div class="deck-scroll">
+      <div class="deck-inner">
+        <div class="sec-head" data-rv>
+          <span class="eyebrow">Chapter VI — Systems & Progression</span>
+          <h2 class="h-sec">系统玩法与<em>成长机制</em></h2>
+          <p class="lede">「无限」在保留经典框架的前提下，对成长、社交、视觉与辅助功能四条线同时动刀。以下是核心改动项的官方说明与影响评估。</p>
+        </div>
+        <div class="grid g3" style="margin-bottom:clamp(14px,1.8vw,22px)">
+          <article class="sys shine" data-rv>
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 L15 9 L22 12 L15 15 L12 22 L9 15 L2 12 L9 9 Z"/></svg></div>
+            <h4>传承系统</h4><div class="en">Legacy Progression</div>
+            <p>针对 1–60 级旅程新增的进度系统。它把沿途的职业训练固化为可长期积累的传承奖励，让升级本身产生跨角色的价值沉淀。</p>
+            <ul><li>覆盖完整 1–60 级旅程</li><li>账号范围内的传承奖励</li><li>与满级内容进度相互独立</li></ul>
+          </article>
+          <article class="sys shine" data-rv style="transition-delay:.07s">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2c2 4-1 5 0 8s3 3 3 6a3 3 0 0 1-6 0c0-2 1-3 2-4 0 3 2 3 2 1 0-2-3-3-1-7z"/></svg></div>
+            <h4>露营系统</h4><div class="en">Campfire System</div>
+            <p>玩家可以在野外搭建营火，让途经的冒险者驻足停留。借助专业技能为营地提供帮助，并与所有分享营地增益的玩家互相成就——把野外从路过变成停留。</p>
+            <ul><li>野外自由搭建营火</li><li>依赖专业技能提供增益</li><li>增益在营地范围内共享</li></ul>
+          </article>
+          <article class="sys shine" data-rv style="transition-delay:.14s">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18V6m0 12h16M8 14l3-4 3 2 4-6"/></svg></div>
+            <h4>职业与天赋重制</h4><div class="en">Skills &amp; Talents</div>
+            <p>技能与天赋树全面重建。开发方向明确为「补短板而不抹平特色」：每个职业的招牌机制被保留，同时修正其在团本与高难 PvP 中过度弱势或失衡的表现。</p>
+            <ul><li>重制的天赋树</li><li>新增技能与强化现有技能</li><li>部分职业针对性调整</li></ul>
+          </article>
+          <article class="sys shine" data-rv>
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
+            <h4>视觉预设与模型</h4><div class="en">Visual Presets</div>
+            <p>玩家可在现代与经典视觉预设之间切换，并独立选择高清或标清角色模型与经典动画。想保留 2004 年的观感，这不再是取舍题。</p>
+            <ul><li>现代 / 经典视觉预设</li><li>SD 与 HD 角色模型自由选</li><li>经典动画选项</li></ul>
+          </article>
+          <article class="sys shine" data-rv style="transition-delay:.07s">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+            <h4>四种规则模式</h4><div class="en">Rulesets</div>
+            <p>同一服务器上并存四种规则集：经典、PvP、角色扮演与硬核。不同偏好的玩家在同一个艾泽拉斯里，各自选择自己认可的游戏方式。</p>
+            <ul><li>经典模式 · 标准体验</li><li>PvP 模式 · 偏向对抗</li><li>角色扮演模式 · 沉浸叙事</li><li>硬核模式 · 高风险永久角色</li></ul>
+          </article>
+          <article class="sys shine" data-rv style="transition-delay:.14s">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8h10a5 5 0 0 1 0 10H9a4 4 0 0 1-2-7.5"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="20" r="2"/></svg></div>
+            <h4>辅助功能与输入</h4><div class="en">Quality of Life</div>
+            <p>官方手柄支持、幻化功能优化、账号范围内的传承奖励，以及全新的营火社交特性，共同构成「无限」的生活质量更新层。</p>
+            <ul><li>官方手柄支持</li><li>幻化（Transmog）</li><li>账号范围奖励与外观</li></ul>
+          </article>
+        </div>
+        <div class="grid g2">
+          <div class="cmp" data-rv>
+            <h4>等级与进程结构</h4><div class="sb">Progression Structure</div>
+            <div class="cmp-r"><div class="cmp-t"><span>等级上限</span><b>60</b></div><div class="trk"><i data-w="100"></i></div></div>
+            <div class="cmp-r"><div class="cmp-t"><span>1–60 全新任务</span><b>1000+</b></div><div class="trk"><i data-w="100"></i></div></div>
+            <div class="cmp-r"><div class="cmp-t"><span>新起始区域覆盖等级</span><b>1–12</b></div><div class="trk"><i data-w="20"></i></div></div>
+            <div class="cmp-r"><div class="cmp-t"><span>河林任务覆盖等级</span><b>35–45</b></div><div class="trk"><i data-w="46"></i></div></div>
+            <p class="nt">官方明确：不加入飞行坐骑，不做等级缩放。这是「无限」保持「旅程感」的核心前提。</p>
+          </div>
+          <div class="cmp" data-rv style="transition-delay:.09s">
+            <h4>内容规模对照</h4><div class="sb">Content Volume · vs. Classic 2004</div>
+            <div class="cmp-r"><div class="cmp-t"><span>新地下城（无限 / 2004）</span><b>9 / 0</b></div><div class="trk"><i data-w="100"></i><i class="old" data-w="0"></i></div></div>
+            <div class="cmp-r"><div class="cmp-t"><span>新区域（无限 / 2004）</span><b>4 / 0</b></div><div class="trk"><i data-w="100"></i><i class="old" data-w="0"></i></div></div>
+            <div class="cmp-r"><div class="cmp-t"><span>可选种族（无限 / 2004）</span><b>13 / 8</b></div><div class="trk"><i data-w="100"></i><i class="old" data-w="62"></i></div></div>
+            <div class="cmp-r"><div class="cmp-t"><span>职业（无限 / 2004）</span><b>13 / 8</b></div><div class="trk"><i data-w="100"></i><i class="old" data-w="62"></i></div></div>
+            <p class="nt">发光条为「无限」，浅色条为 2004 年首发基线。结构相同，但内容厚度已不可同日而语。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 08 PvP ─── -->
+  <section class="deck" data-nav="战场 PvP" data-short="PvP">
+    <div class="deck-bg plain"></div>
+    <div class="deck-scroll">
+      <div class="deck-inner">
+        <div class="sec-head" data-rv>
+          <span class="eyebrow">Chapter VII — PvP</span>
+          <h2 class="h-sec">战场：<em>暗矛群岛</em></h2>
+          <p class="lede">「无限」带来一座全新的 15 对 15 战场。它并非单一模式的复制——官方明确说明其融合了<strong style="color:var(--accent-ink)">战略要地争夺</strong>、<strong style="color:var(--accent-ink)">旗帜占领</strong>与<strong style="color:var(--accent-ink)">防守</strong>三种玩法，这在原初时代的战场设计中相当罕见。</p>
+        </div>
+        <div class="grid g3">
+          <div class="mini" data-rv><h5>战略要地争夺</h5><p>控制地图中部的关键点位，形成推进与拉锯的节奏。胜负手在于谁先完成对高价值区域的占领与切换。</p></div>
+          <div class="mini" data-rv style="transition-delay:.08s"><h5>旗帜占领</h5><p>经典的夺旗逻辑提供清晰的胜负判定终点。与要地争夺形成「过程与目标」的双层设计，避免战斗只剩一条直线。</p></div>
+          <div class="mini" data-rv style="transition-delay:.16s"><h5>防守与反击</h5><p>防守型目标让先手方无法无脑推进，迫使双方在开局阶段就必须进行战术博弈与资源交换。</p></div>
+        </div>
+        <div class="grid g2" style="margin-top:clamp(14px,1.8vw,22px);grid-template-columns:1fr 1fr">
+          <div class="cmp" data-rv>
+            <h4>战场结构</h4><div class="sb">Battleground Parameters</div>
+            <div class="cmp-r"><div class="cmp-t"><span>对抗规模</span><b>15 v 15</b></div><div class="trk"><i data-w="75"></i></div></div>
+            <div class="cmp-r"><div class="cmp-t"><span>融合模式数</span><b>3</b></div><div class="trk"><i data-w="100"></i></div></div>
+            <div class="cmp-r"><div class="cmp-t"><span>PvP 赛季刷新</span><b>2027 春 / 夏</b></div><div class="trk"><i data-w="40"></i></div></div>
+            <p class="nt">后续更新中还将持续追加新的 PvP 内容与赛季调整。</p>
+          </div>
+          <div class="mini" data-rv style="transition-delay:.09s">
+            <h5>配套的 PvP 规则模式</h5>
+            <p>全新战场与四种规则模式中的 <b style="color:var(--accent-ink)">PvP 模式</b>形成配套。官方在设计理念中反复强调「守护并培育社交体验」——战场要奖励沟通与协作，而不是惩罚不会配合的人。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 09 平衡 ─── -->
+  <section class="deck" data-nav="平衡调整" data-short="平衡">
+    <div class="deck-bg plain"></div>
+    <div class="deck-scroll">
+      <div class="deck-inner">
+        <div class="sec-head" data-rv>
+          <span class="eyebrow">Chapter VIII — Balance</span>
+          <h2 class="h-sec">平衡性<em>调整</em></h2>
+          <p class="lede">本次平衡工作的基调是「补短板、留特色」。以下为官方公布的主要调整方向汇总，完整数值将以 Beta 期间的实测与后续在线修正为准。</p>
+        </div>
+        <div class="nt-w" data-rv>
+          <table>
+            <thead><tr><th style="width:20%">调整对象</th><th style="width:15%">类型</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td class="k">天赋树</td><td><span class="tg t-rew">重做</span></td><td>全职业天赋树重建。天赋选择与职业身份感的关联被重新梳理，不再以「最优解」压缩职业差异。</td></tr>
+              <tr><td class="k">技能体系</td><td><span class="tg t-add">新增</span><span class="tg t-mod">增强</span></td><td>为各职业加入新技能，并强化部分既有技能。官方表示目标是让每门职业在承担其短板角色时具备可用性。</td></tr>
+              <tr><td class="k">弱势职业</td><td><span class="tg t-add">补强</span></td><td>针对在团本与高难 PvP 中表现偏弱的职业进行定向调整，重点覆盖输出爆发窗口与团队功能性。</td></tr>
+              <tr><td class="k">职业特色</td><td><span class="tg t-rew">保留</span></td><td>调整不触碰职业核心机制。每门职业的招牌定位与战斗节奏被明确要求保留，避免「削平」式平衡。</td></tr>
+              <tr><td class="k">新种族天赋</td><td><span class="tg t-add">新增</span></td><td>天裔的种族天赋依阵营而异：部落天裔可用萨满祭司，联盟天裔可用法师，种族天赋存在细微差别。</td></tr>
+              <tr><td class="k">新种族职业组合</td><td><span class="tg t-add">解锁</span></td><td>补齐矮人萨满祭司、被遗忘者圣骑士等长期空缺的组合，为职业提供新的种族天赋搭配空间。</td></tr>
+              <tr><td class="k">等级缩放</td><td><span class="tg t-nerf">不引入</span></td><td>官方明确不加入飞行坐骑、不做等级缩放。跨区域内容按原定等级投放，不做动态调节。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 10 路线图 ─── -->
+  <section class="deck" id="roadmap" data-nav="路线图" data-short="路线">
+    <div class="deck-bg plain"></div>
+    <div class="deck-scroll">
+      <div class="deck-inner">
+        <div class="sec-head" data-rv>
+          <span class="eyebrow">Chapter IX — Roadmap</span>
+          <h2 class="h-sec">未来<em>旅程路线图</em></h2>
+          <p class="lede">官方强调：「无限」不是一个赛季，而是一个以玩家反馈为基础、持续扩展原初艾泽拉斯的<strong style="color:var(--accent-ink)">长期内容计划</strong>。以下时间表规划至 2027 年夏季。</p>
+        </div>
+        <div class="tl">
+          <div class="tl-i done" data-rv><span class="dt">2026.09.17</span><h4>Beta 测试开启</h4><p>Beta 阶段等级上限 30 级，仅向预购「天裔史诗包」与「魔兽永恒合集」的玩家开放。10 月 6 日开启国服 Beta。</p><div class="ch"><span class="chip">等级上限 30</span><span class="chip">限时开放</span></div></div>
+          <div class="tl-i done" data-rv><span class="dt">2026.10.06</span><h4>国服 Beta 测试</h4><p>国服 Beta 正式开启，为 11 月 5 日的国服上线做最后验证。</p><div class="ch"><span class="chip">国服专属</span></div></div>
+          <div class="tl-i" data-rv><span class="dt">2026.11.04 / 11.05</span><h4>全球正式上线</h4><p>11 月 4 日 15:00 PST 全球同步上线（国服 11 月 5 日 07:00）。首批内容包含四大新区域、九座地下城、天裔种族、新种族职业组合，以及重制的技能与天赋体系。</p><div class="ch"><span class="chip hl">4 新区域</span><span class="chip hl">9 地下城</span><span class="chip hl">天裔</span><span class="chip">1000+ 任务</span><span class="chip">15v15 战场</span></div></div>
+          <div class="tl-i" data-rv><span class="dt">2026.12.10</span><h4>首个团队副本阶段</h4><p>「深穴」（10 人）与「海加尔峰」（20 人）同时解锁，附带新的职业套装与传说级奖励。</p><div class="ch"><span class="chip hl">深穴 10 人</span><span class="chip hl">海加尔峰 20 人</span><span class="chip">职业套装</span></div></div>
+          <div class="tl-i" data-rv><span class="dt">2026 冬季</span><h4>硬核模式上线</h4><p>「专家模式 / 硬核模式」在冬季开放，为追求高风险永久角色的玩家提供独立的规则集选项。</p><div class="ch"><span class="chip">专家模式</span><span class="chip">永久角色</span></div></div>
+          <div class="tl-i" data-rv><span class="dt">2027 春季</span><h4>内容扩展 · 第一波</h4><p>两座新团队副本、两座新地下城、新任务与新的可玩区域、一条新的传奇任务线，以及 PvP 赛季刷新。</p><div class="ch"><span class="chip">2 团队副本</span><span class="chip">2 地下城</span><span class="chip">新可玩区域</span><span class="chip">传奇任务线</span><span class="chip">PvP 赛季</span></div></div>
+          <div class="tl-i" data-rv><span class="dt">2027 夏季</span><h4>内容扩展 · 长期更新</h4><p>一座经过重制的经典团队副本、一座新团队副本、扩展的世界内容、PvP 赛季再次刷新，以及专业与传承系统的更新。</p><div class="ch"><span class="chip hl">经典团本重制</span><span class="chip hl">新团队副本</span><span class="chip">世界内容</span><span class="chip">专业与传承更新</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 11 版本 ─── -->
+  <section class="deck" data-nav="版本预购" data-short="版本">
+    <div class="deck-bg plain"></div>
+    <div class="deck-scroll">
+      <div class="deck-inner">
+        <div class="sec-head" data-rv>
+          <span class="eyebrow">Chapter X — Editions</span>
+          <h2 class="h-sec">版本与<em>预购</em></h2>
+          <p class="lede">本体内容随《魔兽世界》订阅或游戏时间免费开放，无需另行购买。以下为可选的升级版本与预购权益。</p>
+        </div>
+        <div class="grid g3">
+          <article class="ed brk" data-rv>
+            <h4>天裔英雄包</h4><div class="pr">$29.99</div><div class="en2">Skyborne Heroic Pack</div>
+            <ul><li>天裔种族访问权与泽风岛起始体验</li><li>提前名称预留资格</li><li>「碧蓝骄傲之爪」地面坐骑（需游戏内学习骑术）</li><li>幻化外观与家宅装饰</li><li>1 个「邀请好友」上线代码</li></ul>
+          </article>
+          <article class="ed brk" data-rv style="transition-delay:.09s">
+            <h4>天裔史诗包</h4><div class="pr">$59.99</div><div class="en2">Skyborne Epic Pack</div>
+            <ul><li>英雄包全部内容</li><li><b style="color:var(--accent-ink)">9 月 17 日起的 Beta 测试资格</b></li><li>自 11 月 4 日起 30 天游戏时间</li><li>额外幻化外观、宠物与战旗</li><li>3 个「邀请好友」上线代码</li></ul>
+          </article>
+          <article class="ed brk feat" data-rv style="transition-delay:.18s">
+            <h4>魔兽永恒合集</h4><div class="pr">$79.99</div><div class="en2">Warcraft Forever Collection · 限时</div>
+            <ul><li>史诗包全部内容</li><li>《魔兽争霸 III：重铸版》</li><li>「王国之祸」战役（限至 2027 年 1 月 11 日）</li><li>被遗忘者与人类雕像家宅装饰</li><li>另有限量实体典藏版（含矮人雕像）</li></ul>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 12 结语 ─── -->
+  <section class="deck" id="finale" data-nav="结语" data-short="结语">
+    <div class="deck-bg plain"></div>
+    <div class="deck-scroll">
+      <div class="fin">
+        <svg class="sb-big" viewBox="0 0 200 200" style="color:var(--accent)" data-rv><g class="sp"><use href="#ring"/></g></svg>
+        <h2 data-rv>艾泽拉斯在等你回家</h2>
+        <p data-rv>「无限」不是《魔兽世界 2》，而是在现有引擎与二十五年积累之上，为经典时代玩家建立的<b>永久栖身之所</b>。它与「至暗之夜」所处的世界魂三部曲并行——两条时间线，同一个世界。</p>
+        <div class="btn-row" style="margin-bottom:0" data-rv>
+          <button class="btn pri" data-go="1">返回版本概览
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </button>
+        </div>
+
+        <div class="fin-inner">
+          <div class="fg">
+            <div class="fcol">
+              <div class="fb">
+                <svg width="32" height="32" viewBox="0 0 100 100" style="color:var(--accent)">
+                  <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="1.3" opacity=".6" fill="none"/>
+                  <path d="M50 16 L59 43 L86 50 L59 57 L50 84 L41 57 L14 50 L41 43 Z" fill="currentColor" fill-opacity=".2" stroke="currentColor" stroke-width="1.6"/>
+                </svg>
+                <div><b>魔兽世界：无限</b><span>World of Warcraft: Forever</span></div>
+              </div>
+              <p>本页面为版本信息展示页面，内容依据暴雪官方于 BlizzCon 2026 及后续公告整理。首屏背景与全部分区图像素材均取自官方宣传动画《崭新的天地》。《魔兽世界》及《魔兽争霸》相关商标归暴雪娱乐所有，实际内容以游戏内正式版本为准。</p>
+            </div>
+            <div class="fcol">
+              <h6>Sections</h6>
+              <a data-go="1">版本概览</a><a data-go="2">全新区域</a><a data-go="3">地下城</a><a data-go="4">团队副本</a><a data-go="5">新种族</a>
+            </div>
+            <div class="fcol">
+              <h6>More</h6>
+              <a data-go="6">系统成长</a><a data-go="7">战场 PvP</a><a data-go="8">平衡调整</a><a data-go="9">路线图</a><a data-go="10">版本预购</a>
+            </div>
+          </div>
+          <div class="fbot"><span>© 2026 Version Overview · 非官方展示页面</span><span class="mono">Azeroth awaits · 2026.11.04</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# 开发调试产物
+shots/
+_work/
+_opt/
+*.log
+_probe.html
+
+# 系统文件
+Thumbs.db
+desktop.ini
+.DS_Store
