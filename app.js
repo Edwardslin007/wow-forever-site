@@ -196,7 +196,7 @@
   $$('[data-go]').forEach(b => b.addEventListener('click', () => go(+b.dataset.go)));
 
   /* ══════════════ 3.5 单屏自适应缩放与居中 ══════════════ */
-  // 目标：任何 16:9 屏下内容都完整可见、垂直居中、留白均衡
+  // 目标：任何 16:9 屏下内容都完整可见、垂直居中、留白均衡、且不被顶栏遮挡
   function fitDeck(deck) {
     const sc = deck.querySelector('.deck-scroll');
     const inner = deck.querySelector('.deck-inner')
@@ -212,22 +212,29 @@
       return;
     }
 
+    // 顶栏实际高度作为安全区，随视口与字体加载动态变化
+    const bar = $('#topbar');
+    const safe = bar ? Math.ceil(bar.getBoundingClientRect().height) : 66;
+    sc.style.setProperty('--safeTop', safe + 'px');
+
     // 先复位到无缩放状态再测量
     inner.style.setProperty('--fitS', '1');
     inner.classList.remove('fit-scaled');
     sc.classList.add('fit-abs');
 
     requestAnimationFrame(() => requestAnimationFrame(() => {
-      const avail = sc.clientHeight;
-      if (!avail) return;
+      // 绝对定位模式下可用高度 = 容器高 - 上下安全区
+      const total = sc.clientHeight;
+      const avail = total - safe * 2;
+      if (avail <= 0) return;
 
       // 用 offsetHeight 测量未受 transform 影响的真实高度
       const need = inner.offsetHeight;
       if (!need) return;
 
       if (need - avail > 2) {
-        // 目标：内容占据可用高度的 ~86%，保证上下各留 ~7% 呼吸空间
-        let k = Math.max(0.58, Math.min(1, (avail * 0.86) / need));
+        // 缩放到刚好容纳，留 4% 呼吸空间
+        let k = Math.max(0.55, Math.min(1, (avail * 0.96) / need));
         inner.style.setProperty('--fitS', k.toFixed(4));
         inner.classList.add('fit-scaled');
       } else {
@@ -547,7 +554,14 @@
   animateDeck(decks[0]);
   initFx();
   if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(() => { syncNav(); });
+    // 字体加载会改变顶栏高度与文本行数，需重新测量适配
+    document.fonts.ready.then(() => {
+      syncNav();
+      fitDeck(decks[idx]);
+      setTimeout(() => fitDeck(decks[idx]), 260);
+    });
   }
+  // 兜底：若 1.2s 后仍无 fit-scaled 计算结果（网络慢），再适配一次
+  setTimeout(() => { if (window.innerWidth > 900) fitDeck(decks[idx]); }, 1200);
 })();
 

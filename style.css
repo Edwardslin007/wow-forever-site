@@ -1200,3 +1200,21 @@ html[data-fac="alliance"] #montage.no-video::after{
 .deck-inner.fit-scaled #systems .sys:hover ul{
   max-height:clamp(16px,2vh,22px);
 }
+
+/* ------------------------------------------------------------
+   [24] 动态安全区 —— 由 JS 写入 --safeTop（顶栏实测高度）
+   绝对居中时用内边距把内容限制在顶栏之下，彻底避免遮挡
+   ------------------------------------------------------------ */
+.deck-scroll{
+  --safeTop:66px;
+}
+.deck-scroll.fit-abs{
+  padding-top:var(--safeTop);
+  padding-bottom:calc(var(--safeTop) * .62);
+}
+.deck-scroll.fit-abs > .deck-inner,
+.deck-scroll.fit-abs > .hero-in,
+.deck-scroll.fit-abs > .fin{
+  top:calc(var(--safeTop) + (100% - var(--safeTop) * 1.62) / 2);
+  transform:translateY(-50%) scale(var(--fitS,1));
+}
