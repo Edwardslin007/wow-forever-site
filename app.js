@@ -59,6 +59,63 @@
   try { savedFac = localStorage.getItem('wowfac') || 'horde'; } catch (e) {}
   setFaction(savedFac, false);
 
+  /* ══════════════ 1.5 深色 / 浅色模式 ══════════════ */
+
+  const MODES = ['dark', 'light'];
+
+  function applyMode(mode, animate) {
+    if (MODES.indexOf(mode) < 0) mode = 'dark';
+    const html = document.documentElement;
+
+    if (animate) {
+      // 圆形扩散遮罩，让切换像"翻页"而非瞬变
+      const cover = document.createElement('div');
+      cover.className = 'mode-wipe';
+      cover.style.setProperty('--wipe-c', getComputedStyle(html).getPropertyValue('--page-bg').trim());
+      document.body.appendChild(cover);
+      requestAnimationFrame(() => cover.classList.add('go'));
+      setTimeout(() => cover.remove(), 760);
+    }
+
+    html.setAttribute('data-mode', mode);
+    const btn = $('#modeToggle');
+    if (btn) btn.setAttribute('aria-pressed', mode === 'light' ? 'true' : 'false');
+    const mr = $('#modeRowText');
+    if (mr) mr.textContent = mode === 'light' ? '浅色' : '深色';
+    try { localStorage.setItem('wowmode', mode); } catch (e) {}
+    // 通知 canvas 粒子换色
+    try { window.dispatchEvent(new Event('wowmode')); } catch (e) {}
+  }
+
+  function initMode() {
+    let saved = null;
+    try { saved = localStorage.getItem('wowmode'); } catch (e) {}
+    if (saved) {
+      applyMode(saved, false);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      // 尊重系统偏好，但仅在用户未手动设置过时
+      applyMode('light', false);
+    } else {
+      applyMode('dark', false);
+    }
+    const btn = $('#modeToggle');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-mode') === 'light' ? 'dark' : 'light';
+        applyMode(cur, true);
+      });
+    }
+    const row = $('#modeRow');
+    if (row) {
+      row.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-mode') === 'light' ? 'dark' : 'light';
+        applyMode(cur, true);
+      });
+    }
+  }
+
+  initMode();
+
   /* ══════════════ 2. 导航构建 ══════════════ */
 
   const rail = $('#rail');
@@ -90,6 +147,17 @@
     mobNav.appendChild(b3);
   });
 
+  // 移动端菜单内的模式切换行
+  const modeRow = document.createElement('button');
+  modeRow.type = 'button';
+  modeRow.className = 'mode-row';
+  modeRow.id = 'modeRow';
+  modeRow.innerHTML = '<span class="mr-label"><i>◐</i>外观模式</span>'
+    + '<span style="display:flex;align-items:center;gap:10px">'
+    + '<span class="mr-text" id="modeRowText">深色</span>'
+    + '<span class="mr-switch"></span></span>';
+  mobNav.appendChild(modeRow);
+
   const railBtns = $$('#rail button');
   const dotBtns  = $$('#dots button');
   const mobBtns  = $$('#mobNav button');
@@ -103,6 +171,8 @@
     const d = decks[idx];
     const s = d.querySelector('.deck-scroll');
     if (s) s.scrollTop = 0;
+    // 首屏背景是深色视频，浅色模式下顶栏需反色为浅字
+    document.documentElement.setAttribute('data-darkbar', idx === 0 ? '1' : '0');
     document.title = (d.dataset.nav ? d.dataset.nav + ' · ' : '') + '魔兽世界：无限 | World of Warcraft: Forever';
   }
 
@@ -415,16 +485,24 @@
   buildMontage();
 
   /* ══════════════ 8. 粒子系统 ══════════════ */
+  // 注意：这两个变量用 var（无 TDZ），因为 setFaction() 在模块加载早期就会调用 syncFxColor()
+  var facCol = [209, 85, 58];
+  var particleAlpha = 1;
 
   const fx = $('#fx');
   let fxc = null, parts = [], raf = null, w = 0, h = 0, dpr = 1;
-  let facCol = [209, 85, 58];
 
   function syncFxColor() {
     const a = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
     const m = a.match(/(\d+)[,\s]+(\d+)[,\s]+(\d+)/);
     if (m) facCol = [+m[1], +m[2], +m[3]];
+    // 浅色模式下粒子需更暗才可见
+    const light = document.documentElement.getAttribute('data-mode') === 'light';
+    particleAlpha = light ? 0.42 : 1;
   }
+
+  // 模式切换时同步粒子颜色
+  window.addEventListener('wowmode', () => { syncFxColor(); });
 
   function initFx() {
     if (!fx || reduce) return;
@@ -472,7 +550,7 @@
       else if (p.x < -16) p.x = w + 12;
       else if (p.x > w + 16) p.x = -12;
 
-      const al = p.a * (.5 + .5 * Math.sin(p.tw));
+      const al = p.a * (.5 + .5 * Math.sin(p.tw)) * particleAlpha;
       const rr = p.r * (p.big ? 7 : 4.4);
       const g = fxc.createRadialGradient(p.x, p.y, 0, p.x, p.y, rr);
       g.addColorStop(0, 'rgba(' + R + ',' + G + ',' + B + ',' + (al * (p.big ? 1 : .8)) + ')');

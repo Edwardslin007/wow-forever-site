@@ -122,6 +122,20 @@
 
   <div class="dots" id="dots"></div>
 
+  <!-- 深色 / 浅色模式切换 -->
+  <button class="mode-toggle" id="modeToggle" aria-label="切换深色/浅色模式" title="切换深色 / 浅色模式">
+    <span class="mt-track">
+      <svg class="mt-icon mt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.5 14.3A8.5 8.5 0 1 1 9.7 3.5a6.8 6.8 0 0 0 10.8 10.8z"/>
+      </svg>
+      <svg class="mt-icon mt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4.2"/>
+        <path d="M12 2.6v2.2M12 19.2v2.2M4.3 4.3l1.6 1.6M18.1 18.1l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.3 19.7l1.6-1.6M18.1 5.9l1.6-1.6"/>
+      </svg>
+      <span class="mt-thumb"></span>
+    </span>
+  </button>
+
   <div class="pager">
     <button id="pPrev" aria-label="上一屏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
     <button id="pNext" aria-label="下一屏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
