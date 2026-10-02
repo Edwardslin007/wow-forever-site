@@ -1714,3 +1714,81 @@ html[data-mode="light"] .zone p{color:var(--ink-300) !important}
   html[data-mode="light"][data-darkbar="0"] .mt-sun{color:#0a0a0c}
   html[data-mode="light"][data-darkbar="0"] .mt-moon{color:var(--ink-400)}
 }
+/* ============================================================
+   [28] 首屏官方 Logo
+   ============================================================ */
+.hero-logo{
+  position:relative;
+  width:min(100%,560px);
+  margin:0 auto clamp(12px,1.7vh,18px);
+  filter:drop-shadow(0 10px 30px rgba(0,0,0,.55));
+}
+.hero-logo img{
+  display:block;width:100%;height:auto;
+  transition:opacity .5s var(--ease);
+}
+/* 深色模式用白色版，浅色模式用黑色版 */
+html[data-mode="dark"] .hero-logo .hl-dark{opacity:0}
+html[data-mode="dark"] .hero-logo .hl-light{opacity:1}
+html[data-mode="light"] .hero-logo .hl-light{opacity:0}
+html[data-mode="light"] .hero-logo .hl-dark{opacity:1}
+
+/* Logo 呼吸光晕 */
+.hero-logo::after{
+  content:"";position:absolute;left:50%;top:46%;
+  width:76%;height:76%;transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side,var(--accent-glow),transparent 72%);
+  filter:blur(28px);opacity:.55;z-index:-1;
+  animation:logoPulse 4.6s var(--ease-io) infinite;
+  pointer-events:none;
+}
+@keyframes logoPulse{
+  0%,100%{opacity:.34;transform:translate(-50%,-50%) scale(.94)}
+  50%{opacity:.72;transform:translate(-50%,-50%) scale(1.06)}
+}
+
+/* 中文副标 */
+.hero-cn{
+  margin-top:calc(var(--safeTop,0px) * 0);
+  font-family:var(--font-cn);
+  font-size:clamp(13px,1.55vw,20px);
+  font-weight:600;
+  letter-spacing:.32em;
+  text-indent:.32em;
+  color:var(--accent-ink);
+  margin:clamp(10px,1.5vh,16px) 0 clamp(14px,2vh,20px);
+  position:relative;
+  text-align:center;
+}
+.hero-cn::before,.hero-cn::after{
+  content:"";position:absolute;top:50%;width:clamp(26px,5vw,68px);height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent-line));
+}
+.hero-cn::before{left:clamp(-8px,-2vw,-20px);transform:rotate(180deg)}
+.hero-cn::after{right:clamp(-8px,-2vw,-20px)}
+
+/* 浅色模式下首屏为深色视频背景，Logo 用白色版即可 */
+html[data-mode="light"][data-darkbar="1"] .hero-logo .hl-dark{opacity:0}
+html[data-mode="light"][data-darkbar="1"] .hero-logo .hl-light{opacity:1}
+html[data-mode="light"][data-darkbar="1"] .hero-cn{color:#f0b07a}
+html[data-mode="light"][data-darkbar="1"] .hero-cn::before,
+html[data-mode="light"][data-darkbar="1"] .hero-cn::after{
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35));
+}
+html[data-mode="light"][data-darkbar="1"] .hero-logo{filter:drop-shadow(0 10px 30px rgba(0,0,0,.6))}
+
+/* 响应式 */
+@media (max-height:820px){
+  .hero-logo{width:min(100%,460px);margin-bottom:clamp(8px,1.2vh,14px)}
+  .hero-cn{font-size:clamp(11.5px,1.2vw,16px);margin-bottom:clamp(12px,1.8vh,18px)}
+  .hero-logo::after{animation-duration:5.4s}
+}
+@media (max-height:700px){
+  .hero-logo{width:min(100%,380px);margin-bottom:6px}
+  .hero-cn{font-size:11px;letter-spacing:.26em;text-indent:.26em;margin-bottom:10px}
+}
+@media (max-width:640px){
+  .hero-logo{width:min(100%,400px)}
+  .hero-cn{font-size:11.5px;letter-spacing:.2em;text-indent:.2em}
+  .hero-cn::before,.hero-cn::after{width:22px}
+}
