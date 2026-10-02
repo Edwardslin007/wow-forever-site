@@ -1715,80 +1715,110 @@ html[data-mode="light"] .zone p{color:var(--ink-300) !important}
   html[data-mode="light"][data-darkbar="0"] .mt-moon{color:var(--ink-400)}
 }
 /* ============================================================
-   [28] 首屏官方 Logo
+   [28] 首屏官方中文 Logo（盾形徽标 · 彩色单版）
    ============================================================ */
 .hero-logo{
   position:relative;
-  width:min(100%,560px);
-  margin:0 auto clamp(12px,1.7vh,18px);
-  filter:drop-shadow(0 10px 30px rgba(0,0,0,.55));
+  width:min(100%,300px);
+  margin:0 auto clamp(12px,1.8vh,18px);
+  filter:drop-shadow(0 14px 40px rgba(0,0,0,.62));
 }
 .hero-logo img{
   display:block;width:100%;height:auto;
-  transition:opacity .5s var(--ease);
+  animation:logoIn 1.1s var(--ease) both;
 }
-/* 深色模式用白色版，浅色模式用黑色版 */
-html[data-mode="dark"] .hero-logo .hl-dark{opacity:0}
-html[data-mode="dark"] .hero-logo .hl-light{opacity:1}
-html[data-mode="light"] .hero-logo .hl-light{opacity:0}
-html[data-mode="light"] .hero-logo .hl-dark{opacity:1}
+@keyframes logoIn{
+  from{opacity:0;transform:translateY(16px) scale(.94)}
+  to{opacity:1;transform:none}
+}
 
-/* Logo 呼吸光晕 */
+/* 背后的呼吸光晕（跟随阵营色） */
 .hero-logo::after{
-  content:"";position:absolute;left:50%;top:46%;
-  width:76%;height:76%;transform:translate(-50%,-50%);
-  background:radial-gradient(closest-side,var(--accent-glow),transparent 72%);
-  filter:blur(28px);opacity:.55;z-index:-1;
-  animation:logoPulse 4.6s var(--ease-io) infinite;
+  content:"";position:absolute;left:50%;top:48%;
+  width:118%;height:88%;transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side,var(--accent-glow),transparent 70%);
+  filter:blur(34px);opacity:.5;z-index:-1;
+  animation:logoPulse 4.8s var(--ease-io) infinite;
   pointer-events:none;
 }
 @keyframes logoPulse{
-  0%,100%{opacity:.34;transform:translate(-50%,-50%) scale(.94)}
-  50%{opacity:.72;transform:translate(-50%,-50%) scale(1.06)}
+  0%,100%{opacity:.3;transform:translate(-50%,-50%) scale(.93)}
+  50%{opacity:.68;transform:translate(-50%,-50%) scale(1.07)}
 }
 
-/* 中文副标 */
-.hero-cn{
-  margin-top:calc(var(--safeTop,0px) * 0);
+/* 副标：改为一句话标语 */
+.hero-slogan{
   font-family:var(--font-cn);
-  font-size:clamp(13px,1.55vw,20px);
-  font-weight:600;
-  letter-spacing:.32em;
-  text-indent:.32em;
+  font-size:clamp(12.5px,1.24vw,16px);
+  font-weight:500;
+  letter-spacing:.24em;
+  text-indent:.24em;
   color:var(--accent-ink);
-  margin:clamp(10px,1.5vh,16px) 0 clamp(14px,2vh,20px);
-  position:relative;
-  text-align:center;
+  margin:0 0 clamp(16px,2.3vh,24px);
+  text-align:center;position:relative;
+  opacity:.92;
 }
-.hero-cn::before,.hero-cn::after{
-  content:"";position:absolute;top:50%;width:clamp(26px,5vw,68px);height:1px;
+.hero-slogan::before,.hero-slogan::after{
+  content:"";position:absolute;top:50%;width:clamp(24px,4.4vw,58px);height:1px;
   background:linear-gradient(90deg,transparent,var(--accent-line));
 }
-.hero-cn::before{left:clamp(-8px,-2vw,-20px);transform:rotate(180deg)}
-.hero-cn::after{right:clamp(-8px,-2vw,-20px)}
+.hero-slogan::before{left:calc(-1 * clamp(30px,6vw,90px));transform:rotate(180deg)}
+.hero-slogan::after{right:calc(-1 * clamp(30px,6vw,90px))}
 
-/* 浅色模式下首屏为深色视频背景，Logo 用白色版即可 */
-html[data-mode="light"][data-darkbar="1"] .hero-logo .hl-dark{opacity:0}
-html[data-mode="light"][data-darkbar="1"] .hero-logo .hl-light{opacity:1}
-html[data-mode="light"][data-darkbar="1"] .hero-cn{color:#f0b07a}
-html[data-mode="light"][data-darkbar="1"] .hero-cn::before,
-html[data-mode="light"][data-darkbar="1"] .hero-cn::after{
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35));
+@media (max-width:1200px){
+  .hero-slogan::before{left:-38px}
+  .hero-slogan::after{right:-38px}
 }
-html[data-mode="light"][data-darkbar="1"] .hero-logo{filter:drop-shadow(0 10px 30px rgba(0,0,0,.6))}
 
-/* 响应式 */
+/* 浅色模式：首屏为深色视频背景，Logo 本身是彩色无需切换，仅标语提亮 */
+html[data-mode="light"][data-darkbar="1"] .hero-slogan{color:#f0b07a}
+html[data-mode="light"][data-darkbar="1"] .hero-slogan::before,
+html[data-mode="light"][data-darkbar="1"] .hero-slogan::after{
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.38));
+}
+
+/* 响应式：竖版盾形，按高度约束 */
+@media (max-height:900px){
+  .hero-logo{width:min(100%,262px);margin-bottom:clamp(9px,1.4vh,15px)}
+  .hero-slogan{font-size:clamp(11.5px,1.1vw,14.5px);letter-spacing:.2em;text-indent:.2em;margin-bottom:clamp(13px,1.9vh,20px)}
+}
 @media (max-height:820px){
-  .hero-logo{width:min(100%,460px);margin-bottom:clamp(8px,1.2vh,14px)}
-  .hero-cn{font-size:clamp(11.5px,1.2vw,16px);margin-bottom:clamp(12px,1.8vh,18px)}
-  .hero-logo::after{animation-duration:5.4s}
+  .hero-logo{width:min(100%,232px);margin-bottom:clamp(8px,1.2vh,12px)}
+  .hero-slogan{font-size:clamp(11px,1.04vw,13.5px);letter-spacing:.18em;text-indent:.18em;margin-bottom:clamp(11px,1.6vh,16px)}
+  .hero-logo::after{animation-duration:5.6s}
 }
 @media (max-height:700px){
-  .hero-logo{width:min(100%,380px);margin-bottom:6px}
-  .hero-cn{font-size:11px;letter-spacing:.26em;text-indent:.26em;margin-bottom:10px}
+  .hero-logo{width:min(100%,186px);margin-bottom:6px}
+  .hero-slogan{font-size:10.5px;letter-spacing:.14em;text-indent:.14em;margin-bottom:9px}
+  .hero-slogan::before,.hero-slogan::after{width:20px}
+}
+@media (max-height:620px){
+  .hero-logo{width:min(100%,150px);margin-bottom:4px}
+  .hero-slogan{display:none}
 }
 @media (max-width:640px){
-  .hero-logo{width:min(100%,400px)}
-  .hero-cn{font-size:11.5px;letter-spacing:.2em;text-indent:.2em}
-  .hero-cn::before,.hero-cn::after{width:22px}
+  .hero-logo{width:min(100%,232px)}
+  .hero-slogan{font-size:11px;letter-spacing:.14em;text-indent:.14em}
+  .hero-slogan::before,.hero-slogan::after{width:18px}
+  @media (min-width:641px){}
 }
+@media (max-width:640px){
+  .hero-slogan::before{left:-24px}
+  .hero-slogan::after{right:-24px}
+}
+
+/* ── 阵营适配：Logo 是蓝金配色，部落红光晕会与其冲突，需差异化处理 ── */
+/* 联盟：蓝光晕与 Logo 同色会糊成一团，改为极弱或关闭 */
+html[data-fac="alliance"] .hero-logo::after{
+  opacity:.16;
+  background:radial-gradient(closest-side,rgba(140,190,240,.3),transparent 72%);
+}
+html[data-fac="alliance"] .hero-logo{filter:drop-shadow(0 12px 34px rgba(0,0,0,.6))}
+/* 部落：Logo 蓝金 vs 红铜光晕对比强，光晕可稍强但需偏暖 */
+html[data-fac="horde"] .hero-logo::after{
+  background:radial-gradient(closest-side,rgba(200,110,60,.34),transparent 70%);
+  opacity:.44;
+}
+/* 浅色首屏（深色视频背景）同理 */
+html[data-mode="light"][data-darkbar="1"][data-fac="alliance"] .hero-logo::after{opacity:.14}
+html[data-mode="light"][data-darkbar="1"][data-fac="horde"] .hero-logo::after{opacity:.4}
